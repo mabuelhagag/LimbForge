@@ -2,7 +2,7 @@
     "designs": [
         {
             "name": "Ebewelleda Arm",
-            "directory": "STLs/EbeArm/"
+            "directory": "http://s3.eu-central-1.amazonaws.com/limbforge-stls/EbeArm/"
         }
     ]
 }
