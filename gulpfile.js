@@ -152,6 +152,23 @@ gulp.task('serve:test', ['scripts'], () => {
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
 
+// publish to AWS S3 bucket
+gulp.task('stls', () => {
+  require('dotenv').config();
+  var publisher = $.awspublish.create({
+    params: {
+      Bucket: 'limbforge-stls',
+    },
+    "region": "eu-central-1",
+    "signatureVersion": "v3"
+  });
+
+  return gulp.src('./app/STLs/**/*')
+    .pipe(publisher.publish())
+    .pipe(publisher.sync())
+    .pipe($.awspublish.reporter());
+});
+
 // inject bower components
 gulp.task('wiredep', () => {
   gulp.src('app/styles/*.scss')
