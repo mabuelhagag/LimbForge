@@ -94,3 +94,6 @@ GitHub.sublime-settings
 
 # dotenv file
 .env
+
+# gulp-gh-pages cacheDir
+.publish
