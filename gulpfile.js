@@ -156,10 +156,11 @@ gulp.task('stls', () => {
   require('dotenv').config();
   var publisher = $.awspublish.create({
     params: {
-      Bucket: 'limbforge-stls',
+      Bucket: process.env.AWS_BUCKET,
     },
-    "region": "eu-central-1",
-    "signatureVersion": "v3"
+    "region": process.env.AWS_REGION,
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
   });
 
   return gulp.src('./app/STLs/**/*')
