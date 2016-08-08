@@ -190,6 +190,11 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
+// deploy the app
+gulp.task('deploy', ['ghpages', 'stls'], () => {
+
+});
+
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
