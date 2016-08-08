@@ -168,6 +168,12 @@ gulp.task('stls', () => {
     .pipe($.awspublish.reporter());
 });
 
+// publish the app to gh-pages
+gulp.task('ghpages', () => {
+  return gulp.src('./dist/**/*')
+    .pipe($.ghPages());
+});
+
 // inject bower components
 gulp.task('wiredep', () => {
   gulp.src('app/styles/*.scss')
